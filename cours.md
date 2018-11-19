@@ -13,10 +13,9 @@ On peut classer les frameworks de la manière suivante:
 * **Frameworks d'entreprises** qui sont spécifiques aux applications utilisées par les entreprises. 
 * **Frameworks de gestion de contenu** sont les fondations d'un système de gestion de contenu — pour la création, la collecte, le classement, le stockage et la publication de « biens numérisés ». source: [wikipedia](https://fr.wikipedia.org/wiki/Framework)
 ### 3-Frameworks: Quels avantages et quels inconvénients?  
-En utilisant les frameworks, les développeurs codent de façon homogène.Ainsi, quand un développeur rejoint un projet basé sur un framework, la **compréhension de l'architecture lui sera assez simple**.
+En utilisant les frameworks, les développeurs codent de façon homogène.Ainsi, quand un développeur rejoint un projet basé sur un framework, la compréhension de l'architecture lui sera assez simple.De plus, l'adoption d'une structure commune garantit un code organisé et facilement réutilisable. 
 
 
-Le fait que chaque framework possède une structure commune pour tous ses projets a une conséquence tout aussi intéressante : en utilisant un framework, votre code sera le plus souvent déjà organisé, propre et facilement réutilisable par autrui.
 
 Voici d'ailleurs un grand défi des frameworks : bien que ceux-ci doivent instaurer une structure commune, ils doivent aussi être souples et modulables, afin de pouvoir être utilisés pour une grande variété de projets, du plus banal au plus exotique. Autrement, leur intérêt serait grandement limité !
 Quels sont les désavantages d'un framework ?
