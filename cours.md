@@ -12,8 +12,7 @@ On peut classer les frameworks de la manière suivante:
 * **Frameworks d'intégration intergicielle** qui fédèrent des applications hétérogènes
 * **Frameworks d'entreprises** qui sont spécifiques aux applications utilisées par les entreprises. 
 * **Frameworks de gestion de contenu** sont les fondations d'un système de gestion de contenu — pour la création, la collecte, le classement, le stockage et la publication de « biens numérisés ». source: [wikipedia](https://fr.wikipedia.org/wiki/Framework)
-
-### 3-Frameworks:Quels avantages et quels inconvénients?
+### 3-Frameworks: Quels avantages et quels inconvénients?
 
 ### 2- Django, c'est quoi?
 ### 3- Django: design patterns et bonnes pratiques:
