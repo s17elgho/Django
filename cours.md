@@ -39,7 +39,9 @@ Django est l'un des  frameworks applicatifs Python destinés au développement d
 Django permet le développement rapide de meilleures et plus performantes applications web.Il automatise des tâches répétitives  telles que l'écriture de requêtes destinées à une base de données.Il propose d'autres fonctionnalités comme une bibliothèque de traduction on un espace membres.
 ## 5- Design patterns et bonnes pratiques:  
    1-**Don't repeat yourself**:  
+   Don't repeat yourself ou DRY est un principe important en développement consistant à factoriser des portions de code en utilisant des fonctions ou des méthodes au lieu d'avoir à les dupliquer plusierus fois.
    2-**MVC/MVT**:  
+   
    3-**Active record**:
 ## 6- Ecosystème d'une application Django
 
