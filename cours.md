@@ -8,10 +8,10 @@ Un framework permet de **simplifier le travail des développeurs informatiques**
 
 ### 2- Types de frameworks:  
 On peut classer les frameworks de la manière suivante:  
-*  **Frameworks d'infrastructure système utilisés** pour le développement des systèmes d'exploitation (OS) et des interfaces graphiques(Microsoft.Net, Apache Struts)  
+* **Frameworks d'infrastructure système utilisés** pour le développement des systèmes d'exploitation (OS) et des interfaces graphiques(Microsoft.Net, Apache Struts)  
 * **Frameworks d'intégration intergicielle** qui fédèrent des applications hétérogènes
-* **framework d'entreprises** sont spécifiques aux applications utilisées par les entreprises. 
-* Enfin, les framework de gestion de contenu ont pour mission de créer, collecter, classer, stocker et publier des informations numérisées.
+* **Frameworks d'entreprises** qui sont spécifiques aux applications utilisées par les entreprises. 
+* **Frameworks de gestion de contenu** sont les fondations d'un système de gestion de contenu — pour la création, la collecte, le classement, le stockage et la publication de « biens numérisés ». source: [wikipedia](https://fr.wikipedia.org/wiki/Framework)
 
 ### 2- Django, c'est quoi?
 ### 3- Django: design patterns et bonnes pratiques:
