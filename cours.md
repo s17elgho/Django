@@ -17,8 +17,8 @@ En utilisant les frameworks, les développeurs codent de façon homogène.Ainsi,
 
 En revanche, les frameworks doivent être souples et modulables afin qu'ils soient adaptés à différents projets.Certains nécessitent un temps d'apprentissage plus que d'autres. source: [Openclassrooms](https://openclassrooms.com/fr/courses/1871271-developpez-votre-site-web-avec-le-framework-django/1871361-creez-vos-applications-web-avec-django)  
 
-
-### 2- Django, c'est quoi?
+### 2- Django, c'est quoi?  
+Django est l'un des  frameworks applicatifs destinés au développement d’applications web.Créé en 2003 dans une agence de presse, Lawrence Journal-World, le framework est 
 ### 3- Django: design patterns et bonnes pratiques:
 ### 4- Ecosystème d'une application Django:
 
