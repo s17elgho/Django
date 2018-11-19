@@ -15,7 +15,8 @@ On peut classer les frameworks de la manière suivante:
 ### 3-Frameworks: Quels avantages et quels inconvénients?  
 En utilisant les frameworks, les développeurs codent de façon homogène.Ainsi, quand un développeur rejoint un projet basé sur un framework, la compréhension de l'architecture lui sera assez simple.De plus, l'adoption d'une structure commune garantit un code organisé et facilement réutilisable. 
 
-En revanche, les frameworks doivent être souples et modulables afin qu'ils soient adaptés à différents projets.Certains nécessitent un temps d'apprentissage plus que d'autres.
+En revanche, les frameworks doivent être souples et modulables afin qu'ils soient adaptés à différents projets.Certains nécessitent un temps d'apprentissage plus que d'autres. source: [Openclassrooms](https://openclassrooms.com/fr/courses/1871271-developpez-votre-site-web-avec-le-framework-django/1871361-creez-vos-applications-web-avec-django)  
+
 
 ### 2- Django, c'est quoi?
 ### 3- Django: design patterns et bonnes pratiques:
