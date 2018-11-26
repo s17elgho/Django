@@ -43,8 +43,8 @@ Django permet le développement rapide de meilleures et plus performantes applic
    2-**MVC/MVT**:  
    Le Modèle-vue-contrôleur ou MVC est un type d'architecture logicielle destiné aux interfaces graphiques lancé en 1978 et très populaire pour les applications web. Le motif est composé de trois types de modules assurant différents rôles:  
    * Un modèle (Model) contient les données à afficher.
-   * Une vue (View) contient la présentation de l'interface graphique.
-    * Un contrôleur (Controller) contient la logique concernant les actions effectuées par l'utilisateur.
+   * Une vue (View) contient la présentation de l'interface graphique.  
+   * Un contrôleur (Controller) contient la logique concernant les actions effectuées par l'utilisateur.source: [Wikipédia](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur)
    
    3-**Active record**:
 ## 6- Ecosystème d'une application Django
