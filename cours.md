@@ -49,7 +49,7 @@ Le Modèle-vue-contrôleur ou MVC est un type d'architecture logicielle destiné
    * Une vue (View) contient la présentation de l'interface graphique.  
    * Un contrôleur (Controller) contient la logique concernant les actions effectuées par l'utilisateur.source: [Wikipédia](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur)  
    Django utilise l'architecture MVT (modèle-vue-template)qui s'inspire de MVC:   
-   * Le **modèle** interagit avec une base de données.Un **ORM** (Object Relational Mapping) traduit les réponses à une requête [SQL](file:///C:/Users/admin/Documents/EGDownloads/Sql_1_Cours.pdf) ( langage de consultation de base de données) en **objets Pytho** exploitables par le programme.Tous les modèles sont réunis dans un fichier python **models.py**.  
+   * Le **modèle** interagit avec une base de données.Un **ORM** (Object Relational Mapping) traduit les réponses à une requête [SQL](file:///C:/Users/admin/Documents/EGDownloads/Sql_1_Cours.pdf) ( langage de consultation de base de données) en **objets Python** exploitables par le programme.Tous les modèles sont réunis dans un fichier python **models.py**.  
    * La **vue** reçoit [une requête HTTP](https://openclassrooms.com/fr/courses/1118811-les-requetes-http) et renvoie une réponse HTTP convenable (par exemple si la requête est une interaction avec une base de données, la vue appelle un modèle pour récupérer les items demandés).Les vues se trouvent dans le fichier **views.py**
    * Le **template** est un fichier [HTML](https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1604361-votre-premiere-page-web-en-html) récupéré par la vue et envoyé au visiteur.
 
