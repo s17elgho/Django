@@ -63,3 +63,32 @@ Le Modèle-vue-contrôleur ou MVC est un type d'architecture logicielle destiné
 ## 4 - Présentation du contenu avec les templates
 ## 5 - Administration du projet avec le scaffolding
 
+Une des grandes forces de Django est de proposer la création très rapide d'une interface permettant d'administrer son site. Pour cela on va utiliser les fonctionnalités de _scaffolding_ (littéralement _échaffaudage_ ou _structure_) de Django.
+
+La première étape est d'ajouter l'application d'administration dans la liste des applications utilisées dans notre projet. Pour ce faire il faut modifier la variable `INSTALLED_APPS` dans le ficher `settings.py` du projet :
+
+```python
+INSTALLED_APPS = (
+    ...,
+    'django.contrib.admin',
+    ...,
+)
+```
+
+Maintenant que l'application est active, il faut permettre son accès. Pour ce faire il faut rajouter une route pointant vers l'interface d'administration. Modifiez le fichier `urls.py` du projet (et non de l'application) pour rajouter ces lignes :
+
+```python
+from django.contrib import admin
+
+admin.autodiscover()
+
+urlpatterns = [
+    ...,
+    path('admin/', admin.site.urls),
+    ...,
+]
+```
+
+Ne vous attardez pas trop sur la ligne `admin.autodiscover()`, il nous permet simplement _"d'ajouter"_ tous nos modèles dans l'interface d'administration.
+
+Afin de pouvoir utiliser notre interface, il nous faut créer un utilisateur qui a les droits d'accès à l'interface. Dans une console, se placer dans le dossier de notre projet, là où se trouve le fichier `manage.py` et taper : `python manage.py createsuperuser` (ou `python3 manage.py createsuperuser` si vous utilisez Python 3) puis suivez les étapes affichées. Une fois cette étape effectuée, vous pouvez lancer le serveur pour tester votre interface.
