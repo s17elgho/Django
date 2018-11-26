@@ -41,7 +41,10 @@ Django permet le développement rapide de meilleures et plus performantes applic
    1-**Don't repeat yourself**:  
    Don't repeat yourself ou DRY est un principe important en développement consistant à factoriser des portions de code en utilisant des fonctions ou des méthodes au lieu d'avoir à les dupliquer plusierus fois.  
    2-**MVC/MVT**:  
-   
+   Le Modèle-vue-contrôleur ou MVC est un type d'architecture logicielle destiné aux interfaces graphiques lancé en 1978 et très populaire pour les applications web. Le motif est composé de trois types de modules assurant différents rôles:  
+   * Un modèle (Model) contient les données à afficher.
+   * Une vue (View) contient la présentation de l'interface graphique.
+    * Un contrôleur (Controller) contient la logique concernant les actions effectuées par l'utilisateur.
    
    3-**Active record**:
 ## 6- Ecosystème d'une application Django
