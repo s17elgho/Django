@@ -40,25 +40,17 @@ Source: [Openclassrooms](https://openclassrooms.com/fr/courses/1871271-developpe
 
 Django est l'un des  frameworks applicatifs Python destinés au développement d’applications web. Créé en 2003 dans une agence de presse, Lawrence Journal-World, le framework est proposé au grand public deux ans plus tard. En 2008, la fondation Django Software a été créée. Aujourd'hui, Django est très populaire. Il est utilisé dans des applications web très célèbres comme *Instagram* ou *Pinterest*.  
 
-Django permet le développement rapide de meilleures et plus performantes applications web. Il automatise des tâches répétitives  telles que l'écriture de requêtes destinées à une base de données. Il propose d'autres fonctionnalités comme une bibliothèque de traduction on un espace membres.
+Django permet le développement rapide de meilleures et plus performantes applications web. Il automatise des tâches répétitives  telles que l'écriture de requêtes destinées à une base de données. Il propose d'autres fonctionnalités comme une bibliothèque de traduction on un espace membres. 
 
-## 5 - Design patterns et bonnes pratiques
+## 5-**MVC/MVT**:   
 
-Django est l'un des  frameworks applicatifs Python destinés au développement d’applications web.Créé en 2003 dans une agence de presse, Lawrence Journal-World, le framework est proposé au grand public deux ans plus tard.En 2008, la fondation Django Software a été créée.Aujourd'hui, Django est très populaire.Il est utilisé dans des applications web très célèbres comme *Instagram* et  *Pinterest*.  
-
-Django permet le développement rapide de meilleures et plus performantes applications web.Il automatise des tâches répétitives  telles que l'écriture de requêtes destinées à une base de données.Il propose d'autres fonctionnalités comme une bibliothèque de traduction on un espace membres.
-## 5- Design patterns et bonnes pratiques:  
-   1-**Don't repeat yourself**:  
-   Don't repeat yourself ou DRY est un principe important en développement consistant à factoriser des portions de code en utilisant des fonctions ou des méthodes au lieu d'avoir à les dupliquer plusierus fois.  
-   2-**MVC/MVT**:  
-   Le Modèle-vue-contrôleur ou MVC est un type d'architecture logicielle destiné aux interfaces graphiques lancé en 1978 et très populaire pour les applications web. Le motif est composé de trois types de modules assurant différents rôles:  
+Le Modèle-vue-contrôleur ou MVC est un type d'architecture logicielle destiné aux interfaces graphiques lancé en 1978 et très populaire pour les applications web. Le motif est composé de trois types de modules assurant différents rôles:  
    * Un modèle (Model) contient les données à afficher.
    * Une vue (View) contient la présentation de l'interface graphique.  
    * Un contrôleur (Controller) contient la logique concernant les actions effectuées par l'utilisateur.source: [Wikipédia](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur)  
    Django utilise l'architecture MVT (modèle-vue-template)qui s'inspire de MVC.  
    * Le modèle interagit avec une base de données.Un ORM (Object Relational Mapping) traduit les réponses à une requête SQL ( langage de consultation de base de données) en objets Python exploitables par le programme.Tous les modèles sont 
-   
-   3-**Active record**:
+
 ## 6- Ecosystème d'une application Django
 
 # II - Créer son premier projet sur Django
