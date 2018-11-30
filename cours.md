@@ -59,16 +59,16 @@ Le Modèle-vue-contrôleur ou MVC est un type d'architecture logicielle destiné
 # II - Créer son premier projet sur Django
 ## 1 - Créer un projet et une première application
 Après avoir installé Django, nous pouvons créer un nouveau projet.
-La première étape est de créer un répertoire qui contient des fichiers utiles au fonctionnement du projet. Pour créer ce répertoire, on tape la commande suivante:
-$ django-admin.py startproject mon_projet
+La première étape est de créer un répertoire qui contient des fichiers utiles au fonctionnement du projet. Pour créer ce répertoire, on tape la commande suivante:  
+$ django-admin.py startproject mon_projet  
 Ce répertoire *mon_projet* contient un script manage.py qui permettra d'exécuter des commandes utiles au sein du projet. Il contient aussi des fichiers propres au projet: settings.py contient la configuration globale du projet, urls.py est le contrôleur frontal du projet et wsgi.py est un fichier de configuration relatif au serveur qui executera le projet.
-Nous pouvons vérifier que le projet fonctionne avec la commande:
-$ python manage.py runserver
+Nous pouvons vérifier que le projet fonctionne avec la commande:  
+$ python manage.py runserver  
 Cette commande lance le serveur de développement Django et affiche des informations dont l'URL du projet Django que nous venons de créer.
 
 __Création d'une application au sein du projet__
 
-Créer une application est très simple. Il faut tout d'abord se placer dans le répertoire du projet puis taper la commande suivante:
+Créer une application est très simple. Il faut tout d'abord se placer dans le répertoire du projet puis taper la commande suivante:  
 $ django-admin.py startapp chistera
 Un répertoire *chistera* a été créé dans le répertoire du projet et contient plusieurs fichiers: le fichier models.py qui est destiné à accueillir les modèles de l'application, le fichier views.py qui sert à accueillir les contrôleurs de l'application et le fichier tests.py qui va accueillir les tests.
 
