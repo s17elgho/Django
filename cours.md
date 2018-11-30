@@ -62,10 +62,21 @@ Après avoir installé Django, nous pouvons créer un nouveau projet.
 La première étape est de créer un répertoire qui contient des fichiers utiles au fonctionnement du projet. Pour créer ce répertoire, on tape la commande suivante:
 $ django-admin.py startproject mon_projet
 Ce répertoire *mon_projet* contient un script manage.py qui permettra d'exécuter des commandes utiles au sein du projet. Il contient aussi des fichiers propres au projet: settings.py contient la configuration globale du projet, urls.py est le contrôleur frontal du projet et wsgi.py est un fichier de configuration relatif au serveur qui executera le projet.
-Nous pouvons vérifier que le projet fonctionne avec la commande:
-$ python manage.py runserver
-Cette commande lance le serveur de développement Django et affiche des informations dont l'URL du projet Django que nous venons de créer.
+
 ## 2 - Conception des premiers modèles
+Les modèles Django sont des classes héritées de la classe _Model_ du framework de base, qui leur confère ainsi les propriétés et méhodes relatives aux modèles. 
+Afin de créer notre premier modèle, il nous faut démarer dans le fichier models.py de l'application (voir point précédent pour la création d'une application.) 
+
+```
+from django.db import models
+
+class MonPremierModel(models.Model):
+    """
+    La documentation de mon modèle.
+    """
+    un_exemple_de_texte = models.CharField(max_length=150)
+```
+
 ## 3 - Le traitement des données avec les vues et le routage d'URL
 ## 4 - Présentation du contenu avec les templates
 ## 5 - Administration du projet avec le scaffolding
