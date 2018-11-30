@@ -5,8 +5,7 @@
     2. Types de frameworks
     3. Frameworks : Quels avantages et quels inconvénients ?
     4. Django, c'est quoi ?
-    5. Design patterns et bonnes pratiques
-    6. Ecosystème d'une application Django
+    5. MVC/MVT
 2. Créer son premier projet sur Django
     1. Créer un projet et une première application
     2. Conception des premiers modèles
