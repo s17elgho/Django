@@ -89,6 +89,36 @@ urlpatterns = [
 ]
 ```
 
-Ne vous attardez pas trop sur la ligne `admin.autodiscover()`, il nous permet simplement _"d'ajouter"_ tous nos modèles dans l'interface d'administration.
+Ne vous attardez pas trop sur la ligne `admin.autodiscover()`, il nous permet simplement _"d'ajouter"_ automatiquement les modules d'administration de chaque application.
 
-Afin de pouvoir utiliser notre interface, il nous faut créer un utilisateur qui a les droits d'accès à l'interface. Dans une console, se placer dans le dossier de notre projet, là où se trouve le fichier `manage.py` et taper : `python manage.py createsuperuser` (ou `python3 manage.py createsuperuser` si vous utilisez Python 3) puis suivez les étapes affichées. Une fois cette étape effectuée, vous pouvez lancer le serveur pour tester votre interface.
+Afin de pouvoir utiliser notre interface, il nous faut créer un utilisateur qui a les droits d'accès à l'interface. Dans une console, se placer dans le dossier de notre projet, là où se trouve le fichier `manage.py` et taper : `python manage.py createsuperuser` (ou `python3 manage.py createsuperuser` si vous utilisez Python 3) puis suivez les étapes affichées. Une fois cette étape effectuée, vous pouvez lancer le serveur pour tester votre interface. Vous devriez arriver sur une interface comme celle-ci :
+
+![Connexion à la plateforme d'administration](http://formation-django.fr/media/images/cms/authentification-interface-administration.png)
+Source : [formation-django.fr](http://formation-django.fr/framework-django/scaffolding/mise-en-oeuvre.html)
+
+Django gérant lui même toutes les questions de sécurité et d'authentification, il vous suffit de vous connecter avec les identifiants créés précédemment et vous avez accès à l'interface de gestion.
+
+![Interface d'administration](http://formation-django.fr/media/images/cms/django-scaffolding-accueil.png)
+Source : [formation-django.fr](http://formation-django.fr/framework-django/scaffolding/mise-en-oeuvre.html)
+
+On a accès à la gestion des groupes d'utilisateurs, ainsi qu'au utilisateurs eux-mêmes, mais pas à la gestion de notre application en elle même, ce qui rends l'interface peu utile. Rajoutons donc nos modèles dans l'administration.
+
+Pour ce faire, il faut modifier le fichier `admin.py` de notre application pour rajouter les lignes suivantes :
+
+```python
+from django.contrib import admin
+from chistera.models import *
+
+admin.site.register(Team)
+admin.site.register(Project)
+admin.site.register(ProductBacklog)
+admin.site.register(Sprint)
+admin.site.register(UserStory)
+```
+
+(L'importation du module à la deuxième lignes ainsi que les modèles utilisé sont à adapter selon votre application).
+
+En raffraichissant simplement la page d'administration (avec le serveur lancé), nous voyons tous nos modèles dans l'interface : 
+
+![Interface d'administration mise à jour avec les modèles](http://formation-django.fr/media/images/cms/django-application-admin.png)
+Source : [formation-django.fr](http://formation-django.fr/framework-django/scaffolding/mise-en-oeuvre.html)
