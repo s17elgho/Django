@@ -70,7 +70,7 @@ Cette commande lance le serveur de développement Django et affiche des informat
 __Création d'une application au sein du projet__
 
 Créer une application est très simple. Il faut tout d'abord se placer dans le répertoire du projet puis taper la commande suivante:  
-$ django-admin.py startapp chistera
+$ django-admin.py startapp chistera  
 Un répertoire *chistera* a été créé dans le répertoire du projet et contient plusieurs fichiers: le fichier models.py qui est destiné à accueillir les modèles de l'application, le fichier views.py qui sert à accueillir les contrôleurs de l'application et le fichier tests.py qui va accueillir les tests.
 
 ## 2 - Conception des premiers modèles
