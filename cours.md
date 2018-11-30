@@ -48,8 +48,7 @@ Le Modèle-vue-contrôleur ou MVC est un type d'architecture logicielle destiné
    * Un modèle (Model) contient les données à afficher.
    * Une vue (View) contient la présentation de l'interface graphique.  
    * Un contrôleur (Controller) contient la logique concernant les actions effectuées par l'utilisateur.source: [Wikipédia](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur)  
-   ![](https://upload.wikimedia.org/wikipedia/commons/b/b4/MVC_Diagram_%28Model-View-Controller%29.svg)  
-   source:[Modèle-vue-contrôleur](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur)
+   ![https://upload.wikimedia.org/wikipedia/commons/b/b4/MVC_Diagram_%28Model-View-Controller%29.svg]
    Django utilise l'architecture MVT (modèle-vue-template)qui s'inspire de MVC:   
    * Le **modèle** interagit avec une base de données.Un **ORM** (Object Relational Mapping) traduit les réponses à une requête [SQL](file:///C:/Users/admin/Documents/EGDownloads/Sql_1_Cours.pdf) ( langage de consultation de base de données) en **objets Python** exploitables par le programme.Tous les modèles sont réunis dans un fichier python **models.py**.  
    * La **vue** reçoit [une requête HTTP](https://openclassrooms.com/fr/courses/1118811-les-requetes-http) et renvoie une réponse HTTP convenable (par exemple si la requête est une interaction avec une base de données, la vue appelle un modèle pour récupérer les items demandés).Les vues se trouvent dans le fichier **views.py**
@@ -59,6 +58,11 @@ Le Modèle-vue-contrôleur ou MVC est un type d'architecture logicielle destiné
 
 # II - Créer son premier projet sur Django
 ## 1 - Créer un projet et une première application
+Après avoir installé Django, nous pouvons créer un nouveau projet.
+La première étape est de créer un répertoire qui contient des fichiers utiles au fonctionnement du projet. Pour créer ce répertoire, on tape la commande suivante:
+$ django-admin.py startproject mon_projet
+Ce répertoire *mon_projet* contient un script manage.py qui permettra d'exécuter des commandes utiles au sein du projet. Il contient aussi des fichiers propres au projet: settings.py contient la configuration globale du projet, urls.py est le contrôleur frontal du projet et wsgi.py est un fichier de configuration relatif au serveur qui executera le projet.
+
 ## 2 - Conception des premiers modèles
 ## 3 - Le traitement des données avec les vues et le routage d'URL
 ## 4 - Présentation du contenu avec les templates
@@ -90,36 +94,6 @@ urlpatterns = [
 ]
 ```
 
-Ne vous attardez pas trop sur la ligne `admin.autodiscover()`, il nous permet simplement _"d'ajouter"_ automatiquement les modules d'administration de chaque application.
+Ne vous attardez pas trop sur la ligne `admin.autodiscover()`, il nous permet simplement _"d'ajouter"_ tous nos modèles dans l'interface d'administration.
 
-Afin de pouvoir utiliser notre interface, il nous faut créer un utilisateur qui a les droits d'accès à l'interface. Dans une console, se placer dans le dossier de notre projet, là où se trouve le fichier `manage.py` et taper : `python manage.py createsuperuser` (ou `python3 manage.py createsuperuser` si vous utilisez Python 3) puis suivez les étapes affichées. Une fois cette étape effectuée, vous pouvez lancer le serveur pour tester votre interface. Vous devriez arriver sur une interface comme celle-ci :
-
-![Connexion à la plateforme d'administration](http://formation-django.fr/media/images/cms/authentification-interface-administration.png)
-Source : [formation-django.fr](http://formation-django.fr/framework-django/scaffolding/mise-en-oeuvre.html)
-
-Django gérant lui même toutes les questions de sécurité et d'authentification, il vous suffit de vous connecter avec les identifiants créés précédemment et vous avez accès à l'interface de gestion.
-
-![Interface d'administration](http://formation-django.fr/media/images/cms/django-scaffolding-accueil.png)
-Source : [formation-django.fr](http://formation-django.fr/framework-django/scaffolding/mise-en-oeuvre.html)
-
-On a accès à la gestion des groupes d'utilisateurs, ainsi qu'au utilisateurs eux-mêmes, mais pas à la gestion de notre application en elle même, ce qui rends l'interface peu utile. Rajoutons donc nos modèles dans l'administration.
-
-Pour ce faire, il faut modifier le fichier `admin.py` de notre application pour rajouter les lignes suivantes :
-
-```python
-from django.contrib import admin
-from chistera.models import *
-
-admin.site.register(Team)
-admin.site.register(Project)
-admin.site.register(ProductBacklog)
-admin.site.register(Sprint)
-admin.site.register(UserStory)
-```
-
-(L'importation du module à la deuxième lignes ainsi que les modèles utilisé sont à adapter selon votre application).
-
-En raffraichissant simplement la page d'administration (avec le serveur lancé), nous voyons tous nos modèles dans l'interface : 
-
-![Interface d'administration mise à jour avec les modèles](http://formation-django.fr/media/images/cms/django-application-admin.png)
-Source : [formation-django.fr](http://formation-django.fr/framework-django/scaffolding/mise-en-oeuvre.html)
+Afin de pouvoir utiliser notre interface, il nous faut créer un utilisateur qui a les droits d'accès à l'interface. Dans une console, se placer dans le dossier de notre projet, là où se trouve le fichier `manage.py` et taper : `python manage.py createsuperuser` (ou `python3 manage.py createsuperuser` si vous utilisez Python 3) puis suivez les étapes affichées. Une fois cette étape effectuée, vous pouvez lancer le serveur pour tester votre interface.
