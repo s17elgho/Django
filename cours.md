@@ -59,20 +59,25 @@ Le Modèle-vue-contrôleur ou MVC est un type d'architecture logicielle destiné
 # II - Créer son premier projet sur Django
 ## 1 - Créer un projet et une première application
 Après avoir installé Django, nous pouvons créer un nouveau projet.
-La première étape est de créer un répertoire qui contient des fichiers utiles au fonctionnement du projet. Pour créer ce répertoire, on tape la commande suivante:  
-$ django-admin.py startproject mon_projet  
+La première étape est de créer un répertoire qui contient des fichiers utiles au fonctionnement du projet. Pour créer ce répertoire, on tape la commande suivante:
+$ django-admin.py startproject mon_projet
 Ce répertoire *mon_projet* contient un script manage.py qui permettra d'exécuter des commandes utiles au sein du projet. Il contient aussi des fichiers propres au projet: settings.py contient la configuration globale du projet, urls.py est le contrôleur frontal du projet et wsgi.py est un fichier de configuration relatif au serveur qui executera le projet.
-Nous pouvons vérifier que le projet fonctionne avec la commande:  
-$ python manage.py runserver  
-Cette commande lance le serveur de développement Django et affiche des informations dont l'URL du projet Django que nous venons de créer.
-
-__Création d'une application au sein du projet__
-
-Créer une application est très simple. Il faut tout d'abord se placer dans le répertoire du projet puis taper la commande suivante:  
-$ django-admin.py startapp chistera
-Un répertoire *chistera* a été créé dans le répertoire du projet et contient plusieurs fichiers: le fichier models.py qui est destiné à accueillir les modèles de l'application, le fichier views.py qui sert à accueillir les contrôleurs de l'application et le fichier tests.py qui va accueillir les tests.
 
 ## 2 - Conception des premiers modèles
+Les modèles Django sont des classes héritées de la classe _Model_ du framework de base, qui leur confère ainsi les propriétés et méhodes relatives aux modèles. 
+Afin de créer notre premier modèle, il nous faut démarer dans le fichier models.py de l'application (voir point précédent pour la création d'une application.) 
+
+```
+from django.db import models
+
+class MonPremierModel(models.Model):
+    """
+    La documentation de mon modèle.
+    """
+    un_exemple_de_texte = models.CharField(max_length=150)
+```
+Lorsque vous créez un modèle Django, vous utilisez le système d'ORM du framework, ce qui singnifie que Django vous propose certains types de champs disponibles pour la création de vos modèles. On ne les listera pas ici, mais on peut citer pour exemple _CharField_ (pour un champ de texte, mappé vers un VARCHAR en BDD) ou encore _ForeignKey_ (pour une référence à un objet d'un autre modèle.)
+
 ## 3 - Le traitement des données avec les vues et le routage d'URL
 ## 4 - Présentation du contenu avec les templates
 ## 5 - Administration du projet avec le scaffolding
