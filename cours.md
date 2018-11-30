@@ -109,6 +109,8 @@ Désormais, vous connaissez les principales caractéristiques des modèles.
 ## 4 - Présentation du contenu avec les templates
 ## 5 - Administration du projet avec le scaffolding
 
+### Installation
+
 Une des grandes forces de Django est de proposer la création très rapide d'une interface permettant d'administrer son site. Pour cela on va utiliser les fonctionnalités de _scaffolding_ (littéralement _échaffaudage_ ou _structure_) de Django.
 
 La première étape est d'ajouter l'application d'administration dans la liste des applications utilisées dans notre projet. Pour ce faire il faut modifier la variable `INSTALLED_APPS` dans le ficher `settings.py` du projet :
@@ -137,4 +139,71 @@ urlpatterns = [
 
 Ne vous attardez pas trop sur la ligne `admin.autodiscover()`, il nous permet simplement _"d'ajouter"_ tous nos modèles dans l'interface d'administration.
 
-Afin de pouvoir utiliser notre interface, il nous faut créer un utilisateur qui a les droits d'accès à l'interface. Dans une console, se placer dans le dossier de notre projet, là où se trouve le fichier `manage.py` et taper : `python manage.py createsuperuser` (ou `python3 manage.py createsuperuser` si vous utilisez Python 3) puis suivez les étapes affichées. Une fois cette étape effectuée, vous pouvez lancer le serveur pour tester votre interface.
+Afin de pouvoir utiliser notre interface, il nous faut créer un utilisateur qui a les droits d'accès à l'interface. Dans une console, se placer dans le dossier de notre projet, là où se trouve le fichier `manage.py` et taper : `python manage.py createsuperuser` (ou `python3 manage.py createsuperuser` si vous utilisez Python 3) puis suivez les étapes affichées. Une fois cette étape effectuée, vous pouvez lancer le serveur pour tester votre interface. Vous devriez arriver sur une interface comme celle-ci :
+
+![Connexion à la plateforme d'administration](http://formation-django.fr/media/images/cms/authentification-interface-administration.png)
+Source : [formation-django.fr](http://formation-django.fr/framework-django/scaffolding/mise-en-oeuvre.html)
+
+Django gérant lui même toutes les questions de sécurité et d'authentification, il vous suffit de vous connecter avec les identifiants créés précédemment et vous avez accès à l'interface de gestion.
+
+![Interface d'administration](http://formation-django.fr/media/images/cms/django-scaffolding-accueil.png)
+Source : [formation-django.fr](http://formation-django.fr/framework-django/scaffolding/mise-en-oeuvre.html)
+
+On a accès à la gestion des groupes d'utilisateurs, ainsi qu'au utilisateurs eux-mêmes, mais pas à la gestion de notre application en elle même, ce qui rends l'interface peu utile. Rajoutons donc nos modèles dans l'administration.
+
+Pour ce faire, il faut modifier le fichier `admin.py` de notre application pour rajouter les lignes suivantes :
+
+```python
+from django.contrib import admin
+from chistera.models import *
+
+admin.site.register(Team)
+admin.site.register(Project)
+admin.site.register(ProductBacklog)
+admin.site.register(Sprint)
+admin.site.register(UserStory)
+```
+
+(L'importation du module à la deuxième lignes ainsi que les modèles utilisé sont à adapter selon votre application).
+
+En rafraichissant simplement la page d'administration (avec le serveur lancé), nous voyons tous nos modèles dans l'interface : 
+
+![Interface d'administration mise à jour avec les modèles](http://formation-django.fr/media/images/cms/django-application-admin.png)
+Source : [formation-django.fr](http://formation-django.fr/framework-django/scaffolding/mise-en-oeuvre.html)
+
+### Paramétrage avancé
+
+Vous l'avez peut-être remarqué, l'interface est en anglais par défaut. Une des grandes qualités de Django est sa gestion des différentes langues et des différents fuseaux horaires. Pour en profiter, il faut modifier les variables `TIME_ZONE` et `LANGUAGE_CODE` dans le fichier `settings.py` du projet :
+
+```python
+TIME_ZONE = 'Europe/Paris'
+LANGUAGE_CODE = 'fr-FR'
+```
+
+Avec ceci, notre application est en français, et utilise le fuseau horaire de Paris. Cependant les noms des modèles sont toujours en anglais. Ceci vient du fait que nos modèles sont nommés en anglais et que Django n'a rien pour _deviner_ la traduction, et utilise simplement le Camel Case (voir [Camel Case sur Wikipédia](https://fr.wikipedia.org/wiki/Camel_case) pour plus d'explications) pour _deviner_ le nom des modèles. Pour traduire les noms affichés de nos modèles, il y a deux possibilités :
+1. On change le nom de la classe qui définie le modèle dans le fichier `models.py`
+2. On utilise une classe interne dans notre modèle où l'on définit les noms à utiliser pour l'interface d'administration
+
+La première solution n'est pas à préférer parce que si on est ammené à changer le nom d'usage de notre modèle par la suite, il serait à changer dans tous les fichiers où on l'utilise ce qui peut poser des problèmes. 
+
+Pour implémenter la deuxième solution, il suffit de rajouter dans le modèle que l'on souhaite _traduire_ une classe interne de la manière suivante :
+
+```python
+class ProductBacklog(models.Model):
+    # ...
+    
+    class Meta:
+        verbose_name = 'Backlog de produit'
+        verbose_name_plural = 'Backlogs de produit'
+```
+
+Ainsi on a la possibilité de définir la façon dont s'affiche notre modèle, à l'infinitif comme au pluriel.
+
+L'étape suivante est d'adapter l'affichage des listes d'enregistrement à nos besoins.
+
+Si on retourne sur notre interface d'administration, en cliquant sur un modèle, on tombe sur une liste assez similaire à la suivante : 
+
+![Extrait de l'interface d'administration](http://formation-django.fr/media/images/cms/django-admin-liste-par-defaut.png)
+Source [formation-django.fr](http://formation-django.fr/framework-django/scaffolding/parametrage-avance-interface-admin.html)
+
+La visualisation est assez classique avec une liste des éléments ainsi que la possibilté de rechercher, d'ajouter ou de supprimer des éléments.
