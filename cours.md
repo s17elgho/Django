@@ -106,6 +106,89 @@ class MonPremierModel(models.Model):
 Désormais, vous connaissez les principales caractéristiques des modèles.
 
 ## 3 - Le traitement des données avec les vues et le routage d'URL
+
+###Ecriture des contrôleurs  
+
+En Django, on écrit tous les contrôleurs d'une application dans un seul fichier, appelé views.py. Lors de la création de notre application chistera avec la commande djangoadmin.py (voir partie II-1), Django a placé un fichier views.py vide dans le répertoire de l'application que nous pouvons compléter.
+
+Notre fichier url.py définit les routes vers deux contrôleurs:
+
+```
+from django.conf.urls import patterns, url
+
+urlpatterns = patterns('',
+    url(r'^dashboard/$', 'chistera.views.dashboard', name='dashboard'),
+    url(r'^backlog/(?P<backlog_id>[0-9]+)/$', 'chistera.views.backlog', name='backlog'),
+)
+```
+Ainsi il y a deux destinations à définir: un contrôleur dashboard et un contrôleur backlog. Ces deux contrôleurs vont avoir besoin de modèles, il faut donc les importer dans le fichier views.py:  
+from chistera.models import *
+
+__Ecriture du contrôleur (vue) dashboard__  
+
+Ce contrôleur doit récupérer les équipes et les backlogs pour pouvoir invoquer ensuite une vue (template) qui les affichera à l'écran. Pour celà on écrit la déclaration suivante:  
+
+```
+from django.shortcuts import render_to_response
+
+from chistera.models import *
+
+@login_required
+def dashboard(request):
+    backlogs = ProductBacklog.objects.all()
+    teams = Team.objects.all()
+    return render_to_response('chistera/dashboard.html', {'backlogs': backlogs, 'teams': teams})
+    
+ ```
+En Django, tous les contrôleurs doivent retourner un objet de type *HttpResponse*. Ce sont eux qui seront transmis aux templates. La dernière ligne de la fonction permet de créer cet objet. Après celà, les contrôleurs seront en place et nous pourrons afficher la page  correspondant au contrôleur dans un navigateur. De plus, notre contrôleur sera "protégé" par le décorateur *@login_required*. Seules les requêtes^provenant d'utilisateurs authentifiés pourront aboutir.  
+
+__Ecriture du contrôleur (vue) backlog__  
+
+De même nous allons écrire dans le fichier views.py la fonction contrôleur backlog.  
+
+```
+@login_required
+def backlog(request, backlog_id):
+    backlog = get_object_or_404(ProductBacklog, pk=backlog_id)
+    stories = UserStory.objects.filter(product_backlog=backlog)
+    return render_to_response('chistera/backlog.html', {'backlog': backlog, 'stories': stories})
+
+```
+
+La différence ici est que nous avons une variable nommée *backlog_id* qui est automatiquement passée au contrôleur *backlog* par Django.  
+De plus une fonction *get_object_or_404* retourne un code 404 si l'objet est introuvable.  
+
+###Routage d'URL: écriture du contrôleur frontal  
+
+L'idée ici est d'associer des patterns d'URL aux contrôleurs d'une application. C'est ce que va faire le contrôleur frontal. Chaque projet dispose d'un contrôleur frontal. Dans le fichier urls.py, on écrit:  
+
+```
+from django.conf.urls import patterns, include, url
+
+from django.contrib import admin
+admin.autodiscover()
+
+urlpatterns = patterns('',
+    url(r'^admin/', include(admin.site.urls)),
+)
+```
+
+ Celà permet de dire à Django : « Je veux que tu rediriges toutes les requêtes faites à la racine (^) vers le contrôleur frontal de l'application « chistera » qui est défini dans le module *chistera.urls*.  
+
+ Il ne reste plus qu'à écrire les règles de routage dans le fichier *urls.py*:  
+
+ ```
+ from django.conf.urls import patterns, url
+
+urlpatterns = patterns('',
+    url(r'^dashboard/$', 'chistera.views.dashboard', name='dashboard'),
+    url(r'^backlog/(?P<backlog_id>[0-9]+)/$', 'chistera.views.backlog', name='backlog'),
+)
+```
+
+Le contrôleur frontal est donc en place et permet le routage d'URL.
+
+
 ## 4 - Présentation du contenu avec les templates
 ## 5 - Administration du projet avec le scaffolding
 
