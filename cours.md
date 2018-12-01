@@ -107,7 +107,7 @@ Désormais, vous connaissez les principales caractéristiques des modèles.
 
 ## 3 - Le traitement des données avec les vues et le routage d'URL
 
-###Ecriture des contrôleurs  
+### Ecriture des contrôleurs  
 
 En Django, on écrit tous les contrôleurs d'une application dans un seul fichier, appelé views.py. Lors de la création de notre application chistera avec la commande djangoadmin.py (voir partie II-1), Django a placé un fichier views.py vide dans le répertoire de l'application que nous pouvons compléter.
 
@@ -158,7 +158,7 @@ def backlog(request, backlog_id):
 La différence ici est que nous avons une variable nommée *backlog_id* qui est automatiquement passée au contrôleur *backlog* par Django.  
 De plus une fonction *get_object_or_404* retourne un code 404 si l'objet est introuvable.  
 
-###Routage d'URL: écriture du contrôleur frontal  
+### Routage d'URL: écriture du contrôleur frontal  
 
 L'idée ici est d'associer des patterns d'URL aux contrôleurs d'une application. C'est ce que va faire le contrôleur frontal. Chaque projet dispose d'un contrôleur frontal. Dans le fichier urls.py, on écrit:  
 
