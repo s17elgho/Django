@@ -66,7 +66,7 @@ Le _design pattern_ Modèle-Vue-Contrôleur ou MVC est un type d'architecture lo
    * La **vue** reçoit [une requête HTTP](https://openclassrooms.com/fr/courses/1118811-les-requetes-http) et renvoie une réponse HTTP convenable (par exemple si la requête est une interaction avec une base de données, la vue appelle un modèle pour récupérer les items demandés). Les vues se trouvent dans le fichier `views.py`
    * Le **template** est un fichier [HTML](https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1604361-votre-premiere-page-web-en-html) récupéré par la vue et envoyé au visiteur avec les données des modèles.  
    
-   La figure ci-dessous montre comment les différents composants de l'architecture MVT de Django interagissent pour répondre à la requête d'un utilisateur.  
+   La figure ci-dessous montre comment les différents composants de l'architecture MVT de Django interagissent pour répondre à la requête d'un utilisateur. Ici le contrôleur ne correspond pas au contrôleur du MVC, mais à Django en lui même qui gère en interne tout ce qui est liée au choix de la vue à laquelle envoyer la requête HTTP,...
    ![](https://camo.githubusercontent.com/2fd581466b72e4b92e5893ea842b0ee085fff68d/68747470733a2f2f646f63732e676f6f676c652e636f6d2f64726177696e67732f642f314c456f30356854445f45435a355647356f664d6468327434445f4c6769416e626c752d65305435386645342f7075623f773d39363026683d373230)  
    Source: [GitHub](https://github.com/emencia/emencia-django-training/wiki/Mod%C3%A8le-MVT)  
 
