@@ -212,11 +212,11 @@ Le contrôleur frontal est donc en place et permet le routage d'URL.
 Commençons par présenter le moteur de templates de Dango, qui vous permettra d'écrire des vues de qualité. Ce moteur fait partie des nombreux points forts de Django qui le distinguent des autres frameworks de même type.
 Le langage de template permet la manipulation de variables au sein d'un contenu textuel. 
 
-Pour afficher une variable dans un template, il faut utiliser des doubles accolades à l’intérieur desquelles on placera le nom de la variable : 
+Pour afficher une variable dans un template, il faut utiliser des doubles accolades à l’intérieur desquelles on placera le nom de la variable.
 
-Voici un bout de code d'exemple, 
+Voici un bout de code d'exemple : 
 
-```
+```django
 Bonjour {{ nom }}
 ```
 et maintenant le rendu
@@ -224,25 +224,25 @@ et maintenant le rendu
 Bonjour Anthony
 ```
 Le moteur de template permet également l'utilisation de nombreux filtres afin d'appliquer des traitements de mise en forme aux variables. Ces filtres sont appelés de la manière suivante, au sein des doubles accolades:
-```
+```django
 {{ variable|filtre }}
 ```
 Prenons un exemple pour éclaircir l'utilisation de ces filtres.
 Voici un bout de code d'exemple, 
 
-```
+```django
 Bonjour {{ nom|capfirst }}
 ```
 et maintenant le rendu
 ```
 Bonjour Anthony
 ```
-Le filtre capfirst utilisé ici convertit le nom de la personne, qui a pour valeur "anthony" en "Anthony" avec majuscule.
+Le filtre `capfirst` utilisé ici convertit le nom de la personne, qui a pour valeur "anthony" en "Anthony" avec majuscule.
 
-Comment fait on pour itérer cette méthode sur une liste? Nous allons pour cela utiliser la boucle "for" de Django, assez proche de celle proposée en Python.
+Comment fait on pour itérer cette méthode sur une liste? Nous allons pour cela utiliser la boucle `for` de Django, assez proche de celle proposée en Python.
 
 Voici un exemple de code.
-```
+```django
 <ul>
 {% for personne in personnes %}
     <li>{{ personne }}</li>
