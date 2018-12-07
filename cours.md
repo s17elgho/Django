@@ -209,14 +209,53 @@ Le contrôleur frontal est donc en place et permet le routage d'URL.
 
 ## 4 - Présentation du contenu avec les templates
 
-Désormais, nous allons nous intéresser aux templates, qui nous permettent d’afficher des données.
-Pour se faire, Django permet d’utiliser des balises de gabarit, directement intégrées au framework. 
+Commençons par présenter le moteur de templates de Dango, qui vous permettra d'écrire des vues de qualité. Ce moteur fait partie des nombreux points forts de Django qui le distinguent des autres frameworks de même type.
+Le langage de template permet la manipulation de variables au sein d'un contenu textuel. 
 
-Tout d’abord, nous devons vous présenter les balises de template. Du fait que les navigateurs ne comprennent que l’HTML, on ne peut directement intégrer du code Python au sein d’un code HTML. Python est un langage dynamique contrairement à l’HTML, plutôt statique.
+Pour afficher une variable dans un template, il faut utiliser des doubles accolades à l’intérieur desquelles on placera le nom de la variable : 
 
-Les balises de template Django servent à construire des sites web, au sein desquels on peut insérer du code ressemblant à du python. 
+Voici un bout de code d'exemple, 
 
-Pour afficher une variable dans un template, il faut utiliser des doubles accolades à l’intérieur desquelles on placera le nom de la variable : {{ posts }}
+```
+Bonjour {{ nom }}
+```
+et maintenant le rendu
+```
+Bonjour Anthony
+```
+Le moteur de template permet également l'utilisation de nombreux filtres afin d'appliquer des traitements de mise en forme aux variables. Ces filtres sont appelés de la manière suivante, au sein des doubles accolades:
+```
+{{ variable|filtre }}
+```
+Prenons un exemple pour éclaircir l'utilisation de ces filtres.
+Voici un bout de code d'exemple, 
+
+```
+Bonjour {{ nom|capfirst }}
+```
+et maintenant le rendu
+```
+Bonjour Anthony
+```
+Le filtre capfirst utilisé ici convertit le nom de la personne, qui a pour valeur "anthony" en "Anthony" avec majuscule.
+
+Comment fait on pour itérer cette méthode sur une liste? Nous allons pour cela utiliser la boucle "for" de Django, assez proche de celle proposée en Python.
+
+Voici un exemple de code.
+```
+<ul>
+{% for personne in personnes %}
+    <li>{{ personne }}</li>
+{% endfor %}
+</ul>
+```
+et le rendu
+```
+Anthony
+Bastien
+Amine
+```
+Pour une liste plus détaillée des différentes fonctionnalités offertes par ce langage, n'hésitez pas à faire un tour sur la documentation officielle, ne serait que pour apprendre les extensions de templates.
 
 ## 5 - Administration du projet avec le scaffolding
 
