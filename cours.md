@@ -52,7 +52,7 @@ Avant de voir les spécificités des design pattern MVC et MVT, il convient de s
 Un _design pattern_, ou _patron de conception_ en français, est une façon de concevoir une application informatique qui est considérée comme bonne et efficace.
 
 Le _design pattern_ Modèle-Vue-Contrôleur ou MVC est un type d'architecture logicielle destiné aux interfaces graphiques lancé en 1978 et très populaire pour les applications web. Le motif est composé de trois types de modules assurant différents rôles:  
-   * Le modèle (Model) représente, souvent sous forme d'objet, les données à utilisée par l'application.
+   * Le modèle (Model) représente, souvent sous forme d'objet, les données à utilisée par l'application et utilise un ORM pour l'interaction avec la base de données.
    * La vue (View) contient la présentation des données via  une interface graphique.  
    * Un contrôleur (Controller) contient la logique concernant les actions effectuées par l'utilisateur.
 
@@ -62,7 +62,7 @@ Le _design pattern_ Modèle-Vue-Contrôleur ou MVC est un type d'architecture lo
    Source : [Wikipédia:MVC](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur)  
    
    Django utilise l'architecture MVT (modèle-vue-template) qui s'inspire de MVC:   
-   * Le **modèle** interagit avec une base de données. Tous les modèles sont réunis dans un fichier python `models.py`.  
+   * Le **modèle** interagit avec une base de données via un ORM. Tous les modèles sont réunis dans un fichier python `models.py`.  
    * La **vue** reçoit [une requête HTTP](https://openclassrooms.com/fr/courses/1118811-les-requetes-http) et renvoie une réponse HTTP convenable (par exemple si la requête est une interaction avec une base de données, la vue appelle un modèle pour récupérer les items demandés). Les vues se trouvent dans le fichier `views.py`
    * Le **template** est un fichier [HTML](https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1604361-votre-premiere-page-web-en-html) récupéré par la vue et envoyé au visiteur avec les données des modèles.  
    
