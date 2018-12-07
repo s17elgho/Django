@@ -5,7 +5,7 @@
     2. Types de frameworks
     3. Frameworks : Quels avantages et quels inconvénients ?
     4. Django, c'est quoi ?
-    5. MVC/MVT
+    5. Design pattern MVC/MVT
 2. Créer son premier projet sur Django
     1. Créer un projet et une première application
     2. Conception des premiers modèles
@@ -41,22 +41,34 @@ Django est l'un des  frameworks applicatifs Python destinés au développement d
 
 Django permet le développement rapide de meilleures et plus performantes applications web. Il automatise des tâches répétitives  telles que l'écriture de requêtes destinées à une base de données. Il propose d'autres fonctionnalités comme une bibliothèque de traduction on un espace membres. 
 
-## 5-**MVC/MVT**:   
+## 5 - Design pattern MVC/MVT
 
+### Introduction aux ORM
 
-Le Modèle-vue-contrôleur ou MVC est un type d'architecture logicielle destiné aux interfaces graphiques lancé en 1978 et très populaire pour les applications web. Le motif est composé de trois types de modules assurant différents rôles:  
-   * Un modèle (Model) contient les données à afficher.
-   * Une vue (View) contient la présentation de l'interface graphique.  
-   * Un contrôleur (Controller) contient la logique concernant les actions effectuées par l'utilisateur. Source : [Wikipédia](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur)  
+Avant de voir les spécificités des design pattern MVC et MVT, il convient de s'intéresser aux ORM. C'est terme anglais signifiant _Object Relational Mapping_, littéralement _Mappage objet-relationnel_. Il s'agit d'un programme informatique qui se place entre la couche de stockage des données dans la base de données relationelle et la couche applicative. Elle permet une abstraction des données et une représentation sous forme d'objets. Ainsi dans la conception de notre application, nos informations seront stockées sous forme d'objets informatiques, et l'ORM s'occupera tout seul de la correspondance avec la base de données.
+
+### Design pattern MVC/MVT
+
+Un _design pattern_, ou _patron de conception_ en français, est une façon de concevoir une application informatique qui est considérée comme bonne et efficace.
+
+Le _design pattern_ Modèle-Vue-Contrôleur ou MVC est un type d'architecture logicielle destiné aux interfaces graphiques lancé en 1978 et très populaire pour les applications web. Le motif est composé de trois types de modules assurant différents rôles:  
+   * Le modèle (Model) représente, souvent sous forme d'objet, les données à utilisée par l'application.
+   * La vue (View) contient la présentation des données via  une interface graphique.  
+   * Un contrôleur (Controller) contient la logique concernant les actions effectuées par l'utilisateur.
+
+   L'idée importante dans ce design pattern est de séparer distinctement les tâches effectuées par les différents éléments. Ainsi la conception et la maintenance sont simplifiées.
+
    ![](https://upload.wikimedia.org/wikipedia/commons/b/b4/MVC_Diagram_%28Model-View-Controller%29.svg)  
-   source:[MVC](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur)  
-   Django utilise l'architecture MVT (modèle-vue-template)qui s'inspire de MVC:   
-   * Le **modèle** interagit avec une base de données. Un **ORM** (Object Relational Mapping) traduit les réponses à une requête [SQL](file:///C:/Users/admin/Documents/EGDownloads/Sql_1_Cours.pdf) ( langage de consultation de base de données) en **objets Python** exploitables par le programme.Tous les modèles sont réunis dans un fichier python **models.py**.  
-   * La **vue** reçoit [une requête HTTP](https://openclassrooms.com/fr/courses/1118811-les-requetes-http) et renvoie une réponse HTTP convenable (par exemple si la requête est une interaction avec une base de données, la vue appelle un modèle pour récupérer les items demandés).Les vues se trouvent dans le fichier **views.py**
-   * Le **template** est un fichier [HTML](https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1604361-votre-premiere-page-web-en-html) récupéré par la vue et envoyé au visiteur.  
-   La figure ci-dessous montre comment les différents composants de l'architecture MVC interagissent pour répondre à la requête d'un utilisateur.  
+   Source : [Wikipédia:MVC](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur)  
+   
+   Django utilise l'architecture MVT (modèle-vue-template) qui s'inspire de MVC:   
+   * Le **modèle** interagit avec une base de données. Tous les modèles sont réunis dans un fichier python `models.py`.  
+   * La **vue** reçoit [une requête HTTP](https://openclassrooms.com/fr/courses/1118811-les-requetes-http) et renvoie une réponse HTTP convenable (par exemple si la requête est une interaction avec une base de données, la vue appelle un modèle pour récupérer les items demandés). Les vues se trouvent dans le fichier `views.py`
+   * Le **template** est un fichier [HTML](https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/1604361-votre-premiere-page-web-en-html) récupéré par la vue et envoyé au visiteur avec les données des modèles.  
+   
+   La figure ci-dessous montre comment les différents composants de l'architecture MVT de Django interagissent pour répondre à la requête d'un utilisateur.  
    ![](https://camo.githubusercontent.com/2fd581466b72e4b92e5893ea842b0ee085fff68d/68747470733a2f2f646f63732e676f6f676c652e636f6d2f64726177696e67732f642f314c456f30356854445f45435a355647356f664d6468327434445f4c6769416e626c752d65305435386645342f7075623f773d39363026683d373230)  
-   source: [github](https://github.com/emencia/emencia-django-training/wiki/Mod%C3%A8le-MVT)  
+   Source: [GitHub](https://github.com/emencia/emencia-django-training/wiki/Mod%C3%A8le-MVT)  
 
 
 # II - Créer son premier projet sur Django
